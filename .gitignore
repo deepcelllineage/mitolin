@@ -103,10 +103,13 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# Data
-gen/
+# Big Data files
+*.fastq*
+*.fasta*
+*.bam*
+*.sam*
+*.vcf*
 
-# Prevent mistakenly tracking large data
-data/
-rawdata/
-generated/
+# dummy file 
+# so git acknowledges the presence of empty directories
+# .keep
