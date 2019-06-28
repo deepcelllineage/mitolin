@@ -104,12 +104,17 @@ venv.bak/
 .mypy_cache/
 
 # Big Data files
-*.fastq*
-*.fasta*
 *.fa*
+*.fastq*
+!*.fastq.eg*
+*.fasta*
+!*.fasta.eg*
 *.bam*
+!*.bam.eg*
 *.sam*
+!*.sam.eg*
 *.vcf*
+!*.vcf.eg*
 
 # dummy file 
 # so git acknowledges the presence of directories that only have ignored files
