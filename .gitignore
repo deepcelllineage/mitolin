@@ -117,6 +117,7 @@ venv.bak/
 !*.vcf.eg*
 erroroutput/
 *.error
+*.interval_list*
 
 # dummy file 
 # so git acknowledges the presence of directories that only have ignored files
