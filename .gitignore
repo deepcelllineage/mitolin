@@ -115,6 +115,7 @@ venv.bak/
 !*.sam.eg*
 *.vcf*
 !*.vcf.eg*
+erroroutput/
 
 # dummy file 
 # so git acknowledges the presence of directories that only have ignored files
