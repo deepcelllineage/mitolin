@@ -5,7 +5,7 @@
 #$ -pe make 2
 #$ -t 1-10
 
-## change the final number to the number of samples that will be processed
+## the final number, above, was set to process 10 samples (cells)
 
 ## load modules
 # module load fastqc              # run qc separately to see if I need to trim
@@ -17,14 +17,14 @@ module load picard-tools/1.96   # file rearrangement
 module load gatk/4.0.0.0        # variant calling
 
 ## path to fastq files r1 & r2
-## this is an absolute path there are 740 files, but how many r1&r2 pairs?
+## this is an absolute path on UCI's hpc
 path1='/dfs3/som/dalawson/drb/data/nguyen_nc_2018_3/Ind2/kessenbrocklab_2/'
 
 ## assign lists of .fastq files
 file1=${path1}r1_list_head.txt
 file2=${path1}r2_list_head.txt
 
-## hpc sungrid-engine (SGE) 
+## use hpc sungrid-engine (SGE) task ID to create folder & file name variables 
 name1=`head -n $SGE_TASK_ID $file1 | tail -n 1 | cut -f1`
 name2=`head -n $SGE_TASK_ID $file2 | tail -n 1 | cut -f1`
 
@@ -73,8 +73,8 @@ fwd='/'
 path=$path1$dir$fwd
 
 ## copy each file into new folder
-cp $name1 $path$name1
-cp $name2 $path$name2
+cp $path1$name1 $path$name1
+cp $path1$name2 $path$name2
 
 
 ######################
@@ -138,6 +138,8 @@ gatk ApplyBQSR -R /pub/kerrigab/hg19/ucsc.hg19.fasta \
 samtools index $path$recal$dup$reord$sort$filter$real$name1$bamext
 
 ## call variants with MuTect2
+## note: we need to make an appropriate panel of normals (pon)
+## and add `--panel-of-normals /path/to/pon.vcf`
 gatk Mutect2 -R /pub/kerrigab/hg19/ucsc.hg19.fasta \
     --dbsnp /pub/kerrigab/hg19/dbsnp_138.hg19.vcf \
     --input $path$recal$dup$reord$sort$filter$real$name1$bamext \
