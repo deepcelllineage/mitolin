@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -N 20190702_1031_gatk4_farm
+#$ -N DB20190702_1031_gatk4_farm
 #$ -ckpt restart
 #$ -q som,pub64,free64,asom
 #$ -pe make 64
