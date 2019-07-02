@@ -40,7 +40,19 @@ ref='ucsc.hg19.fasta'
 ## Run FastaAlternateReferenceMaker
 ####################################
 
-./gatk FastaAlternateReferenceMaker \
+## run FARM
+gatk FastaAlternateReferenceMaker \
     -O $path2output$name$faext
     -R $path2ref$ref
     -V $path2vcf$namewvcfext
+
+## move error files from src/ to output directory
+dote='.e'
+dot='.'
+erfile=$JOB_NAME$dote$JOB_ID$dot$SGE_TASK_ID
+mv $erfile $path2output$erfile
+
+## hpc job instructions
+# to run this script: `qsub filename.sh`
+# to check on the script's status: `qstat -u dalawson`
+# to stop a submitted project by job-ID number: `qdel job-ID-number`
