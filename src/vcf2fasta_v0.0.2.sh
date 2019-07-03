@@ -46,13 +46,8 @@ gatk FastaAlternateReferenceMaker \
     -R $path2ref$ref \
     -V $path2vcf$namewvcfext
 
-## copy error files from current directory to output directory
-# dote='.e'
-# dot='.'
-mkdir erroroutput/
-touch erroroutput/.keep
-erfile=${JOB_NAME}.e${JOB_ID}.${SGE_TASK_ID}
-cp $erfile $path2output/erroroutput/
+## be sure to run the file from a directory called `erroroutput/`
+## so e & o files get deposited in an ignored folder
 
 ## hpc job instructions
 # to run this script: `qsub filename.sh`
