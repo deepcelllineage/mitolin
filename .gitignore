@@ -115,6 +115,7 @@ venv.bak/
 !*.sam.eg*
 *.vcf*
 !*.vcf.eg*
+*.dict*
 erroroutput/
 *.error
 *.interval_list*
