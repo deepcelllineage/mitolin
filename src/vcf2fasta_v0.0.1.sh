@@ -46,7 +46,7 @@ gatk FastaAlternateReferenceMaker \
     -R $path2ref$ref \
     -V $path2vcf$namewvcfext
 
-## move error files from src/ to output directory
+## copy error files from current directory to output directory
 # dote='.e'
 # dot='.'
 mkdir erroroutput/
