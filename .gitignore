@@ -108,6 +108,7 @@ venv.bak/
 *.fastq*
 !*.fastq.eg*
 *.fasta*
+!*.eg.fasta
 !*.fasta.eg*
 *.bam*
 !*.bam.eg*
