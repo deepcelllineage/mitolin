@@ -1,0 +1,9 @@
+A01_L008_1159nt_eg.fasta
+A03_L008_1159nt_eg.fasta
+A04_L008_1159nt_eg.fasta
+A05_L008_1159nt_eg.fasta
+A06_L008_1159nt_eg.fasta
+A07_L008_1159nt_eg.fasta
+A09_L008_1159nt_eg.fasta
+A10_L008_1159nt_eg.fasta
+A12_L008_1159nt_eg.fasta
