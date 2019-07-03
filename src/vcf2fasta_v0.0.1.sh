@@ -1,9 +1,9 @@
 #!/bin/bash
-#$ -N DB20190702_1031_gatk4_farm
+#$ -N DB20190702_1739_gatk4_farm
 #$ -ckpt restart
 #$ -q som,pub64,free64,asom
 #$ -pe make 64
-#$ -t 1-3
+#$ -t 1-10
 
 ## load modules
 module load gatk 
@@ -42,15 +42,17 @@ ref='ucsc.hg19.fasta'
 
 ## run FARM
 gatk FastaAlternateReferenceMaker \
-    -O $path2output$name$faext
-    -R $path2ref$ref
+    -O $path2output$name$faext \
+    -R $path2ref$ref \
     -V $path2vcf$namewvcfext
 
 ## move error files from src/ to output directory
-dote='.e'
-dot='.'
-erfile=$JOB_NAME$dote$JOB_ID$dot$SGE_TASK_ID
-mv $erfile $path2output$erfile
+# dote='.e'
+# dot='.'
+mkdir erroroutput/
+touch erroroutput/.keep
+erfile=${JOB_NAME}.e${JOB_ID}.${SGE_TASK_ID}
+cp $erfile $path2output/erroroutput/
 
 ## hpc job instructions
 # to run this script: `qsub filename.sh`
