@@ -41,9 +41,10 @@ ref='ucsc.hg19.fasta'
 ####################################
 
 ## run CreateSequenceDictionary
-java -jar picard.jar CreateSequenceDictionary \   
-    -R=$path2ref$ref \     
-    -O=${path2output}${name}.dict
+gatk CreateSequenceDictionary \   
+    	-R=$path2ref$ref \     
+    	-O=${path2output}${name}.dict \
+	--arguments_file=$path2fasta$namewfastaext
 
 ## be sure to run the file from a directory called `erroroutput/
 ## so e & o files get deposited in an ignored folder
