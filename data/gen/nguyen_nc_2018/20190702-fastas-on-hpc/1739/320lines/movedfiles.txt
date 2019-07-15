@@ -1,0 +1,2 @@
+The files that were in this folder have been moved to
+/dfs3/pub/dalawson/drb/deepcelllineage/mitolin/data/gen/nguyen_nc_2018/20190710-320lfastas
