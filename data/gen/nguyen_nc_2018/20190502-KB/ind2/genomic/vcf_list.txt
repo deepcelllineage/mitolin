@@ -1,0 +1,10 @@
+A01_L008.vcf
+A03_L008.vcf
+A04_L008.vcf
+A05_L008.vcf
+A06_L008.vcf
+A07_L008.vcf
+A09_L008.vcf
+A10_L008.vcf
+A11_L008.vcf
+A12_L008.vcf
